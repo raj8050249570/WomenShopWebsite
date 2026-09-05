@@ -35,11 +35,15 @@ export default function Newsletter() {
               backgroundColor: '#EAEFE7',
               borderRadius: 'var(--radius-xs)',
               color: 'var(--color-olive-dark)',
-              display: 'inline-flex',
+              display: 'flex',
+              flexWrap: 'wrap',
+              maxWidth: '100%',
               alignItems: 'center',
+              justifyContent: 'center',
               gap: '0.75rem',
               fontWeight: 600,
-              fontSize: '0.9rem'
+              fontSize: '0.9rem',
+              wordBreak: 'break-word'
             }}>
               <CheckCircle size={20} color="var(--color-olive-dark)" />
               <span>Thank you for subscribing! Check your inbox for your welcome discount.</span>

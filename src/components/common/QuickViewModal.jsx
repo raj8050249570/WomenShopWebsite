@@ -48,7 +48,7 @@ export default function QuickViewModal() {
           <X size={22} />
         </button>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem', alignItems: 'center' }}>
+        <div className="quickview-modal-grid">
           {/* Product Image */}
           <div style={{ aspectRatio: '3/4', borderRadius: '4px', overflow: 'hidden', backgroundColor: 'var(--color-bg-subtle)' }}>
             <img src={activeImg} alt={quickViewProduct.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />

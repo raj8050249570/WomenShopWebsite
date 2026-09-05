@@ -82,6 +82,15 @@ export default function ShopPage() {
         </div>
 
         <div className="shop-controls">
+          <button 
+            className="shop-filter-toggle-btn"
+            onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
+            aria-label="Toggle Filters"
+          >
+            <SlidersHorizontal size={16} />
+            <span>{isMobileFilterOpen ? 'Hide Filters' : 'Filters'}</span>
+          </button>
+
           <select 
             className="shop-sort-select"
             value={sortBy}
@@ -135,7 +144,7 @@ export default function ShopPage() {
       {/* Layout Grid: Sidebar + Catalog */}
       <div className="shop-layout-grid">
         {/* Filter Sidebar */}
-        <aside className="filter-sidebar">
+        <aside className={`filter-sidebar ${isMobileFilterOpen ? 'mobile-open' : ''}`}>
           {/* Categories */}
           <div className="filter-group">
             <h4 className="filter-title">Category</h4>

@@ -14,7 +14,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="container" style={{ padding: '3rem 0 6rem' }}>
+    <div className="container" style={{ paddingTop: '3rem', paddingBottom: '6rem' }}>
       <div className="section-header" style={{ marginBottom: '3.5rem' }}>
         <span className="section-label">CLIENT CONCIERGE</span>
         <h1 className="section-title">WE ARE AT YOUR SERVICE</h1>
@@ -23,9 +23,9 @@ export default function ContactPage() {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '4rem', alignItems: 'flex-start' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: '2.5rem', alignItems: 'flex-start' }}>
         {/* Contact Form */}
-        <div style={{ backgroundColor: '#FFFFFF', padding: '2.5rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--color-border-light)', boxShadow: 'var(--shadow-card)' }}>
+        <div style={{ backgroundColor: '#FFFFFF', padding: 'clamp(1.5rem, 3vw, 2.5rem)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--color-border-light)', boxShadow: 'var(--shadow-card)' }}>
           {submitted ? (
             <div style={{ textAlign: 'center', padding: '2rem 0' }}>
               <CheckCircle2 size={44} color="var(--color-olive-dark)" style={{ margin: '0 auto 1rem' }} />

@@ -6,7 +6,7 @@ export default function FeaturedIn() {
     <section className="featured-in-section">
       <div className="container">
         <h3 className="featured-in-title">FEATURED IN</h3>
-        <div className="editorial-press-grid">
+        <div className="editorial-press-grid no-scrollbar">
           {editorialBrands.map((brand, idx) => (
             <div 
               key={idx} 

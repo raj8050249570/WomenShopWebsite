@@ -32,7 +32,7 @@ export default function BenefitsBar() {
 
   return (
     <div className="container benefits-bar-container">
-      <div className="benefits-bar">
+      <div className="benefits-bar no-scrollbar">
         {benefits.map((item, idx) => (
           <div key={idx} className="benefit-item">
             <div className="benefit-icon">
@@ -44,6 +44,9 @@ export default function BenefitsBar() {
             </div>
           </div>
         ))}
+      </div>
+      <div className="mobile-swipe-indicator">
+        <span>← Swipe to explore perks →</span>
       </div>
     </div>
   );

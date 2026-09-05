@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { products } from '../../data/products';
 import { useShop } from '../../context/ShopContext';
 import ProductCard from '../shop/ProductCard';
@@ -14,7 +14,7 @@ export default function NewArrivals() {
       <div className="container">
         <div className="section-top-bar">
           <div>
-            <h2 className="section-title" style={{ fontSize: '1.75rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+            <h2 className="section-title">
               NEW ARRIVALS
             </h2>
           </div>
@@ -28,12 +28,8 @@ export default function NewArrivals() {
           </button>
         </div>
 
-        {/* 6-column / responsive grid matching ProductList.png */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: '1.25rem'
-        }}>
+        {/* Responsive Product Grid */}
+        <div className="new-arrivals-grid">
           {newArrivalsList.map(product => (
             <ProductCard key={product.id} product={product} />
           ))}

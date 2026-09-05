@@ -32,7 +32,7 @@ export default function ProductDetailsPage() {
 
   if (!currentProduct) {
     return (
-      <div className="container" style={{ padding: '5rem 0', textAlign: 'center' }}>
+      <div className="container" style={{ paddingTop: '5rem', paddingBottom: '5rem', textAlign: 'center' }}>
         <h2>Product Not Found</h2>
         <button className="btn-primary" style={{ marginTop: '1.5rem' }} onClick={() => navigateTo('shop', 'all')}>
           Return to Shop

@@ -47,7 +47,7 @@ export default function CheckoutPage() {
 
   if (orderPlaced) {
     return (
-      <div className="container" style={{ padding: '6rem 0', textAlign: 'center', maxWidth: '640px' }}>
+      <div className="container" style={{ paddingTop: '6rem', paddingBottom: '6rem', textAlign: 'center', maxWidth: '640px' }}>
         <div style={{ width: '70px', height: '70px', borderRadius: '50%', backgroundColor: 'var(--color-olive-bg)', color: 'var(--color-olive-dark)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
           <CheckCircle2 size={38} strokeWidth={2} />
         </div>
@@ -76,7 +76,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="container" style={{ padding: '3rem 0 6rem' }}>
+    <div className="container" style={{ paddingTop: '3rem', paddingBottom: '6rem' }}>
       {/* Breadcrumb */}
       <div className="shop-breadcrumb">
         <span style={{ cursor: 'pointer' }} onClick={() => navigateTo('home')}>Home</span>
@@ -86,7 +86,7 @@ export default function CheckoutPage() {
         <span style={{ color: 'var(--color-text-primary)', fontWeight: 600 }}>Checkout</span>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '4rem', alignItems: 'flex-start' }}>
+      <div className="checkout-layout-grid">
         {/* Left: Customer Information & Payment */}
         <form onSubmit={handlePlaceOrder}>
           <div style={{ marginBottom: '2.5rem' }}>
@@ -94,7 +94,7 @@ export default function CheckoutPage() {
               <span>1. Contact & Delivery</span>
             </h2>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+            <div className="checkout-form-row">
               <div>
                 <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 600, marginBottom: '0.35rem', textTransform: 'uppercase' }}>First Name</label>
                 <input 
@@ -143,7 +143,7 @@ export default function CheckoutPage() {
               />
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem' }}>
+            <div className="checkout-form-row" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))' }}>
               <div>
                 <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 600, marginBottom: '0.35rem', textTransform: 'uppercase' }}>City</label>
                 <input 

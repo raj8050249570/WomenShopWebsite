@@ -6,7 +6,7 @@ export default function AboutPage() {
   const { navigateTo } = useShop();
 
   return (
-    <div className="container" style={{ padding: '3rem 0 6rem' }}>
+    <div className="container" style={{ paddingTop: '3rem', paddingBottom: '6rem' }}>
       <div className="section-header" style={{ marginBottom: '3.5rem' }}>
         <span className="section-label">THE ATELIER</span>
         <h1 className="section-title">OUR STORY & PHILOSOPHY</h1>
@@ -16,14 +16,14 @@ export default function AboutPage() {
       </div>
 
       {/* Hero Banner */}
-      <div style={{ position: 'relative', height: '440px', borderRadius: 'var(--radius-md)', overflow: 'hidden', marginBottom: '4.5rem', boxShadow: 'var(--shadow-float)' }}>
+      <div style={{ position: 'relative', height: 'clamp(260px, 45vw, 440px)', borderRadius: 'var(--radius-md)', overflow: 'hidden', marginBottom: '3.5rem', boxShadow: 'var(--shadow-float)' }}>
         <img 
           src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=85" 
           alt="Belgaum Craftsmanship" 
           style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
         />
-        <div style={{ position: 'absolute', inset: 0, background: 'rgba(20, 24, 18, 0.45)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFFFFF', textAlign: 'center', padding: '2rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2.5rem', color: '#FAF8F5', maxWidth: '700px' }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(20, 24, 18, 0.48)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFFFFF', textAlign: 'center', padding: '1.5rem' }}>
+          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.25rem, 3.2vw, 2.2rem)', color: '#FAF8F5', maxWidth: '700px', lineHeight: 1.25 }}>
             "Fashion is not merely what you wear; it is an enduring dialogue with the world."
           </h2>
         </div>

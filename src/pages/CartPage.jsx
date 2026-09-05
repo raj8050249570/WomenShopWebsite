@@ -40,7 +40,7 @@ export default function CartPage() {
 
   if (cart.length === 0) {
     return (
-      <div className="container" style={{ padding: '6rem 0', textAlign: 'center' }}>
+      <div className="container" style={{ paddingTop: '6rem', paddingBottom: '6rem', textAlign: 'center' }}>
         <ShoppingBag size={56} strokeWidth={1} style={{ margin: '0 auto 1.5rem', color: 'var(--color-text-muted)' }} />
         <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '2.4rem', marginBottom: '1rem' }}>
           Your Shopping Bag is Empty
@@ -57,7 +57,7 @@ export default function CartPage() {
   }
 
   return (
-    <div className="container" style={{ padding: '3rem 0 6rem' }}>
+    <div className="container" style={{ paddingTop: '3rem', paddingBottom: '6rem' }}>
       {/* Breadcrumb */}
       <div className="shop-breadcrumb">
         <span style={{ cursor: 'pointer' }} onClick={() => navigateTo('home')}>Home</span>
@@ -84,31 +84,24 @@ export default function CartPage() {
       </div>
 
       {/* Cart Grid: Items table on left + Order summary on right */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr', gap: '3.5rem', alignItems: 'flex-start' }}>
+      <div className="cart-layout-grid">
         {/* Table of items */}
         <div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             {cart.map((item, idx) => (
               <div 
                 key={`${item.id}-${idx}`}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '100px 1fr auto auto',
-                  gap: '1.5rem',
-                  alignItems: 'center',
-                  paddingBottom: '1.5rem',
-                  borderBottom: '1px solid var(--color-border-light)'
-                }}
+                className="cart-table-item"
               >
                 <img 
                   src={item.image} 
                   alt={item.name} 
-                  style={{ width: '100px', height: '130px', objectFit: 'cover', borderRadius: 'var(--radius-xs)' }} 
+                  style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', borderRadius: 'var(--radius-xs)' }} 
                 />
 
                 <div>
                   <h3 
-                    style={{ fontSize: '1.1rem', cursor: 'pointer', marginBottom: '0.35rem' }}
+                    style={{ fontSize: '1.05rem', cursor: 'pointer', marginBottom: '0.35rem' }}
                     onClick={() => navigateTo('product', item.slug)}
                   >
                     {item.name}
@@ -121,29 +114,32 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                {/* Quantity Controls */}
-                <div className="qty-stepper">
-                  <button className="qty-btn" onClick={() => updateQuantity(idx, -1)}>
-                    <Minus size={13} />
-                  </button>
-                  <span className="qty-value">{item.quantity}</span>
-                  <button className="qty-btn" onClick={() => updateQuantity(idx, 1)}>
-                    <Plus size={13} />
-                  </button>
-                </div>
-
-                {/* Subtotal & Delete */}
-                <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '0.5rem' }}>
-                    ${(item.price * item.quantity).toFixed(2)}
+                {/* Actions row: Controls & Subtotal */}
+                <div className="cart-item-actions-row" style={{ display: 'contents' }}>
+                  {/* Quantity Controls */}
+                  <div className="qty-stepper">
+                    <button className="qty-btn" onClick={() => updateQuantity(idx, -1)}>
+                      <Minus size={13} />
+                    </button>
+                    <span className="qty-value">{item.quantity}</span>
+                    <button className="qty-btn" onClick={() => updateQuantity(idx, 1)}>
+                      <Plus size={13} />
+                    </button>
                   </div>
-                  <button 
-                    onClick={() => removeFromCart(idx)}
-                    style={{ color: 'var(--color-text-muted)', fontSize: '0.78rem', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}
-                    title="Remove item"
-                  >
-                    <Trash2 size={14} /> Remove
-                  </button>
+
+                  {/* Subtotal & Delete */}
+                  <div style={{ textAlign: 'right' }}>
+                    <div style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '0.5rem' }}>
+                      ${(item.price * item.quantity).toFixed(2)}
+                    </div>
+                    <button 
+                      onClick={() => removeFromCart(idx)}
+                      style={{ color: 'var(--color-text-muted)', fontSize: '0.78rem', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}
+                      title="Remove item"
+                    >
+                      <Trash2 size={14} /> Remove
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}

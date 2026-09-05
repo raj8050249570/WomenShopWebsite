@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 
 export default function LookbookPage() {
@@ -37,8 +37,8 @@ export default function LookbookPage() {
   ];
 
   return (
-    <div className="container" style={{ padding: '3rem 0 6rem' }}>
-      <div className="section-header" style={{ marginBottom: '4rem' }}>
+    <div className="container" style={{ paddingTop: '2.5rem', paddingBottom: '5rem' }}>
+      <div className="section-header" style={{ marginBottom: '3.5rem' }}>
         <span className="section-label">EDITORIAL CAMPAIGN</span>
         <h1 className="section-title">THE LOOKBOOK</h1>
         <p className="section-subtitle">
@@ -46,29 +46,30 @@ export default function LookbookPage() {
         </p>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '5rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
         {editorialShots.map((shot, idx) => (
           <div 
             key={idx}
+            className="lookbook-row"
             style={{
               display: 'grid',
-              gridTemplateColumns: idx % 2 === 0 ? '1.2fr 1fr' : '1fr 1.2fr',
-              gap: '4rem',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: 'clamp(2rem, 4vw, 4rem)',
               alignItems: 'center'
             }}
           >
-            <div style={{ order: idx % 2 === 0 ? 1 : 2, position: 'relative', borderRadius: 'var(--radius-sm)', overflow: 'hidden', boxShadow: 'var(--shadow-float)' }}>
+            <div style={{ position: 'relative', borderRadius: 'var(--radius-sm)', overflow: 'hidden', boxShadow: 'var(--shadow-float)' }}>
               <img 
                 src={shot.image} 
                 alt={shot.title} 
-                style={{ width: '100%', height: '520px', objectFit: 'cover' }} 
+                style={{ width: '100%', height: 'auto', maxHeight: '480px', objectFit: 'cover', display: 'block' }} 
               />
             </div>
 
-            <div style={{ order: idx % 2 === 0 ? 2 : 1 }}>
+            <div>
               <span className="section-label">{shot.season}</span>
-              <h2 style={{ fontSize: '2.4rem', margin: '0.5rem 0 1.25rem' }}>{shot.title}</h2>
-              <p style={{ fontSize: '1rem', lineHeight: 1.7, marginBottom: '2rem', color: 'var(--color-text-secondary)' }}>
+              <h2 style={{ fontSize: 'clamp(1.75rem, 3.2vw, 2.35rem)', margin: '0.5rem 0 1rem' }}>{shot.title}</h2>
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.65, marginBottom: '1.75rem', color: 'var(--color-text-secondary)' }}>
                 {shot.description}
               </p>
               <button 
